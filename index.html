@@ -150,6 +150,33 @@ h2 i{font-style:normal;color:var(--k)}
 @media (max-width:980px){.vari .g{grid-template-columns:1fr;gap:40px}.vf{aspect-ratio:4/3}}
 @media (max-width:560px){.cats li{grid-template-columns:34px 1fr}.cats em{grid-column:2;text-align:left}}
 
+
+/* dias da semana */
+.semana{background:var(--v);color:var(--c);padding:92px 0 100px;
+  background-image:repeating-linear-gradient(90deg,transparent 0 60px,rgba(250,244,232,.035) 60px 120px)}
+.semana h2{color:var(--c)}
+.semana h2 i{color:var(--f)}
+.semana .sub{color:rgba(250,244,232,.82)}
+.semana .head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap}
+.hoje-tag{display:inline-flex;align-items:center;gap:10px;background:rgba(250,244,232,.1);border:1px solid rgba(250,244,232,.25);
+  border-radius:999px;padding:12px 20px;font-size:14px;font-weight:600}
+.hoje-tag b{color:var(--k)}
+.dias{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:14px;margin-top:46px}
+.dias li{background:#2A5C3A;border-radius:26px;padding:22px 20px 24px;display:flex;flex-direction:column;gap:8px;
+  border:1px solid rgba(250,244,232,.12);transition:transform .3s var(--ease),background .3s var(--ease)}
+.dias li:hover{transform:translateY(-6px);background:#31694180}
+.dias .dow{font:800 12px/1 var(--sans);letter-spacing:.2em;color:var(--f)}
+.dias b{font:400 27px/1.05 var(--serif);color:var(--c)}
+.dias span{font-size:13px;line-height:1.45;color:rgba(250,244,232,.72)}
+.dias li.hoje{background:var(--k);border-color:var(--k);box-shadow:0 18px 36px -18px rgba(0,0,0,.5)}
+.dias li.hoje .dow{color:#5A3A27}
+.dias li.hoje b,.dias li.hoje span{color:var(--ink)}
+.dias li.hoje span{color:rgba(42,30,21,.78)}
+.dias li.hoje .mark{font:800 11px/1 var(--sans);letter-spacing:.16em;color:#5A3A27;margin-top:2px}
+.semana .pe{margin-top:34px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.semana .pe p{font-size:14px;color:rgba(250,244,232,.7);max-width:46ch}
+@media (max-width:560px){.dias{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.dias b{font-size:24px}}
+
 /* marquee */
 .marq-w{overflow:hidden;padding:22px 0 26px}
 .marq{background:var(--k);color:var(--ink);overflow:hidden;border-block:2px solid var(--ink);transform:rotate(-1.2deg);margin:0 -3%}
@@ -297,6 +324,7 @@ h2 i{font-style:normal;color:var(--k)}
     </a>
     <ul>
       <li><a href="#variedade">Variedade</a></li>
+      <li><a href="#semana">Ofertas</a></li>
       <li><a href="#dia">Seu dia</a></li>
       <li><a href="#lojas">Lojas</a></li>
       <li><a href="#horarios">Horários</a></li>
@@ -362,6 +390,33 @@ h2 i{font-style:normal;color:var(--k)}
         <li data-r><span>06</span><b>Perfumaria</b><em>Cuidados pessoais</em></li>
       </ul>
       <a class="btn dark magnetic" href="https://wa.me/5511984170753?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20queria%20saber%20se%20voc%C3%AAs%20t%C3%AAm%20um%20produto" target="_blank" rel="noopener">Procurando algo? Pergunte no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec semana" id="semana">
+  <div class="wrap">
+    <div class="head">
+      <div data-r>
+        <p class="eyebrow">Toda semana</p>
+        <h2>Cada dia tem <i>a sua oferta</i></h2>
+        <p class="sub">Uma categoria em destaque por dia, nas duas lojas. Os produtos e os preços da semana saem no nosso Instagram.</p>
+      </div>
+      <p class="hoje-tag" data-r id="hojeTag" hidden>Hoje é <b id="hojeNome"></b></p>
+    </div>
+    <!-- [confirmar] dias e categorias com a cliente antes de publicar -->
+    <ul class="dias">
+      <li data-dow="0" data-r style="--d:0ms"><span class="dow">SEG</span><b>Despensa</b><span>Arroz, feijão, óleo, açúcar e macarrão</span><span class="mark" hidden>HOJE</span></li>
+      <li data-dow="1" data-r style="--d:50ms"><span class="dow">TER</span><b>Higiene</b><span>Sabonete, shampoo, creme e papel higiênico</span><span class="mark" hidden>HOJE</span></li>
+      <li data-dow="2" data-r style="--d:100ms"><span class="dow">QUA</span><b>Carne</b><span>O dia de encher a geladeira</span><span class="mark" hidden>HOJE</span></li>
+      <li data-dow="3" data-r style="--d:150ms"><span class="dow">QUI</span><b>Congelados</b><span>Frango, linguiça, hambúrguer e empanados</span><span class="mark" hidden>HOJE</span></li>
+      <li data-dow="4" data-r style="--d:200ms"><span class="dow">SEX</span><b>Limpeza</b><span>Sabão, amaciante, desinfetante e esponja</span><span class="mark" hidden>HOJE</span></li>
+      <li data-dow="5" data-r style="--d:250ms"><span class="dow">SÁB</span><b>Bebidas</b><span>Refrigerante, cerveja, suco e água</span><span class="mark" hidden>HOJE</span></li>
+      <li data-dow="6" data-r style="--d:300ms"><span class="dow">DOM</span><b>Café da manhã</b><span>Pão quentinho, frios, café e leite</span><span class="mark" hidden>HOJE</span></li>
+    </ul>
+    <div class="pe">
+      <a class="btn magnetic" href="https://wa.me/5511984170753?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20queria%20saber%20a%20oferta%20de%20hoje" target="_blank" rel="noopener">Saber a oferta de hoje</a>
+      <p>As ofertas mudam toda semana e dependem do estoque de cada loja.</p>
     </div>
   </div>
 </section>
@@ -496,6 +551,22 @@ h2 i{font-style:normal;color:var(--k)}
         cards.forEach(function(c){var k=+c.dataset.depth||10;c.style.translate=(x*k)+'px '+(y*k)+'px'})});
     });
   }
+
+
+  /* dia de oferta de hoje */
+  (function(){
+    var nomes=['Dia do café da manhã','Dia da despensa','Dia da higiene','Dia da carne','Dia dos congelados','Dia da limpeza','Dia das bebidas'];
+    var wk={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    try{
+      var w=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short'}).format(new Date());
+      var dow=wk[w]; if(dow===undefined)return;
+      var col=(dow+6)%7; /* a lista começa na segunda */
+      var li=d.querySelector('.dias li[data-dow="'+col+'"]');
+      if(li){li.classList.add('hoje');var m=li.querySelector('.mark');if(m)m.hidden=false}
+      var t=d.getElementById('hojeTag'),n=d.getElementById('hojeNome');
+      if(t&&n){n.textContent=nomes[dow];t.hidden=false}
+    }catch(e){}
+  })();
 
   /* aberto agora (horário de Brasília) */
   var wk={Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6,Sun:0};
